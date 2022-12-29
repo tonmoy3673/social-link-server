@@ -3,15 +3,15 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
-// import AuthRoute from './Routes/AuthRoute.js'
-// import UserRoute from './Routes/UserRoute.js'
-// import PostRoute from './Routes/PostRoute.js'
+import AuthRoute from './Routes/AuthRoute.js'
+import UserRoute from './Routes/UserRoute.js'
+import PostRoute from './Routes/PostRoute.js'
 
 
-const PORT = process.env.PORT || 5000;
+// const PORT = process.env.PORT || 5000;
 const app = express();
 app.use(cors());
-app.use(express.json());
+
 
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
@@ -33,6 +33,6 @@ mongoose
 
 
   
-//   app.use('/auth', AuthRoute)
-//   app.use('/user', UserRoute)
-//   app.use('/post', PostRoute)
+  app.use('/auth', AuthRoute)
+  app.use('/user', UserRoute)
+  app.use('/post', PostRoute)
