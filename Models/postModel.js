@@ -1,38 +1,16 @@
 import mongoose from "mongoose";
 
-const UserSchema = mongoose.Schema(
-    {
-        email: {
-            type: String,
-            required: true
-        },
-        password : {
-            type: String,
-            required: true
-        },
-        firstName: {
-            type: String,
-            required: true
-        },
-        lastName : {
-            type: String,
-            required: true
-        },
-        isAdmin : {
-            type: Boolean,
-            default: false,
-        },
-        profilePicture: String,
-        coverPicture: String,
-        about: String,
-        livesin: String,
-        worksAt: String,
-        university: String,
-        followers: [] ,
-        following: []
-    },
-    {timestamps: true}
-)
+const postSchema = mongoose.Schema(
+  {
+    userId: { type: String, required: true },
+    desc: String,
+    likes: [],
+    image: String,
+  },
+  {
+    timestamps: true,
+  }
+);
 
-const UserModel= mongoose.model("Users", UserSchema);
-export default UserModel
+var PostModel = mongoose.model("posts", postSchema);
+export default PostModel;
